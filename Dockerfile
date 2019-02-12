@@ -19,7 +19,7 @@ RUN echo $https_proxy
 RUN echo $no_proxy
 
 # packages needed for basic shiny functionality
-RUN R -e "options(internet.info = 0); install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org')"
+RUN R -e "options(internet.info = 0, warn = 2); install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org')"
 
 # set host and port
 COPY Rprofile.site /usr/lib/R/etc/
